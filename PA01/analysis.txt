@@ -1,0 +1,21 @@
+By: Juan Velasquez
+
+For the case that the array is sorted, the worst case scenario is O(n).
+This is because we only do a single pass over the array, while moving the
+pointers to the lowest and highest values in the array closer to each other,
+if they are not equal to the target. This means that in the worst case, one 
+pointer traverses the whole array to meet the other. This algorithm doesnt go
+back to any previous elements once they are ruled out. The only operations done
+in the for loop are of O(1) time complexity. This includes, comparison, looking
+up a value in an array, and incrementing an integer by 1 or decrementing an
+integer by 1. With all of this, we come to the conclusion that the algorithm
+runs in O(n) time complexity if no valid pair is found.
+
+For the case that the array is not sorted, the worst case scenario is O(n).
+This is due to the fact that loop over the array once, checking if the target - value
+at index i has already been added to the hashset. This operation runs in constant
+time since lookup functions for hashsets run in O(1) time. If the target - value 
+is not in the hashset, then insert it. This also runs in O(1) time. Else if the
+target - value exists in the hashset, you have found your pair and can return.
+With all of this, we come to the conclusion that the algorithm runs in O(n) time
+complexity if no valid pair is found.
