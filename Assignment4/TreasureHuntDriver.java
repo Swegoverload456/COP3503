@@ -56,7 +56,7 @@ public class TreasureHuntDriver {
             int minRiskRecursive = treasureHunt.findMinRiskRecursive(grid, 0, 0);
             long endRecursive = System.nanoTime();
             System.out.println("Minimum Risk (Recursive): " + minRiskRecursive);
-            // System.out.println("Execution Time (Recursive): " + (endRecursive - startRecursive) / 1e6 + " ms\n");
+            System.out.println("Execution Time (Recursive): " + (endRecursive - startRecursive) / 1e6 + " ms\n");
 
             // Memoization Approach
             int[][] memo = new int[rows][cols];
@@ -65,14 +65,14 @@ public class TreasureHuntDriver {
             int minRiskMemoization = treasureHunt.findMinRiskMemoization(grid, 0, 0, memo);
             long endMemoization = System.nanoTime();
             System.out.println("Minimum Risk (Memoization): " + minRiskMemoization);
-            // System.out.println("Execution Time (Memoization): " + (endMemoization - startMemoization) / 1e6 + " ms\n");
+            System.out.println("Execution Time (Memoization): " + (endMemoization - startMemoization) / 1e6 + " ms\n");
 
             // Tabulation Approach
             long startTabulation = System.nanoTime();
             int minRiskTabulation = treasureHunt.findMinRiskTabulation(grid);
             long endTabulation = System.nanoTime();
             System.out.println("Minimum Risk (Tabulation): " + minRiskTabulation);
-            // System.out.println("Execution Time (Tabulation): " + (endTabulation - startTabulation) / 1e6 + " ms\n");
+            System.out.println("Execution Time (Tabulation): " + (endTabulation - startTabulation) / 1e6 + " ms\n");
         }
     }
 

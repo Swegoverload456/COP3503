@@ -28,9 +28,27 @@ public class TreasureHunt {
 
     public int findMinRiskMemoization(int[][] grid, int row, int col, int[][] memo){
 
-        
+        if (row == grid.length - 1 && col == grid[0].length - 1) {
+            return grid[row][col];
+        }
 
-        return 0;
+        // If out of bounds, return a very large number
+        if (row >= grid.length || col >= grid[0].length) {
+            return Integer.MAX_VALUE;
+        }
+
+        if(memo[row][col] > grid[row][col]){
+            return memo[row][col];
+        } 
+
+        int currentRisk = grid[row][col];
+
+        int rightPath = findMinRiskMemoization(grid, row, col + 1, memo);
+        int downPath = findMinRiskMemoization(grid, row + 1, col, memo);
+
+        memo[row][col] = currentRisk + Math.min(rightPath, downPath);
+
+        return currentRisk + Math.min(rightPath, downPath);
     }
 
     public int findMinRiskTabulation(int[][] grid){
